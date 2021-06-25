@@ -20,14 +20,14 @@ def load_model():
 with st.spinner('Loading Model Into Memory....'):
   model = load_model()
 
-classes=['buildings' 'forest' 'glacier' 'mountain' 'sea' 'street']
+classes = ['buildings', 'forest', 'glacier', 'mountain', 'sea', 'street']
 
 def decode_img(image):
   img = tf.image.decode_jpeg(image, channels=3)  
   img = tf.image.resize(img,[150,150])
   return np.expand_dims(img, axis=0)
 
-path = st.text_input('Enter Image URL to Classify.. ','https://storage.cloud.google.com/image_classification_2021/alto-crew-Rv3ecImL4ak-unsplash.jpg')
+path = st.text_input('Enter Image URL to Classify.. ','https://storage.googleapis.com/image_classification_2021/Glacier-Argentina-South-America-blue-ice.JPEG')
 if path is not None:
     content = requests.get(path).content
 
